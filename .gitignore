@@ -1,0 +1,31 @@
+# 依赖
+node_modules/
+
+# 构建产物
+dist/
+release/
+release-build/
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# 日志
+*.log
+
+# 本地配置
+.env
+.env.local
+*.local
+
+# IDE / 编辑器
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# 项目临时文件
+nul
+NUL

@@ -1,0 +1,85 @@
+{
+  "name": "fiddlenotes",
+  "version": "1.0.0",
+  "description": "懒人笔记 - 优雅的 Markdown 笔记应用",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "dev:electron": "set NODE_ENV=development && npx electron . --dev",
+    "build": "vite build",
+    "build:electron": "node scripts/build-electron.mjs && npx electron-builder --win",
+    "preview": "vite preview"
+  },
+  "build": {
+    "appId": "com.fiddlenotes.app",
+    "productName": "懒人笔记",
+    "directories": {
+      "output": "release-build"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "public/icon.png",
+      "package.json"
+    ],
+    "asarUnpack": [
+      "dist/sql-wasm.wasm",
+      "dist/sql-wasm.js"
+    ],
+    "asar": false,
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "public/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "懒人笔记",
+      "artifactName": "懒人笔记-Setup-${version}.${ext}"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@codemirror/autocomplete": "^6.20.2",
+    "@codemirror/commands": "^6.10.3",
+    "@codemirror/lang-css": "^6.3.1",
+    "@codemirror/lang-javascript": "^6.2.5",
+    "@codemirror/lang-json": "^6.0.2",
+    "@codemirror/lang-markdown": "^6.5.0",
+    "@codemirror/lang-python": "^6.2.1",
+    "@codemirror/lang-sql": "^6.10.0",
+    "@codemirror/lang-xml": "^6.1.0",
+    "@codemirror/language": "^6.12.3",
+    "@codemirror/search": "^6.7.0",
+    "@codemirror/state": "^6.6.0",
+    "@codemirror/theme-one-dark": "^6.1.3",
+    "@codemirror/view": "^6.43.0",
+    "codemirror": "^6.0.2",
+    "file-saver": "^2.0.5",
+    "highlight.js": "^11.11.1",
+    "jszip": "^3.10.1",
+    "katex": "^0.16.46",
+    "marked": "^12.0.2",
+    "marked-highlight": "^2.2.4",
+    "mermaid": "^11.15.0",
+    "sql.js": "^1.14.1"
+  },
+  "devDependencies": {
+    "canvas": "^3.2.3",
+    "electron": "^28.3.3",
+    "electron-builder": "^24.13.3",
+    "vite": "^5.4.21"
+  }
+}
